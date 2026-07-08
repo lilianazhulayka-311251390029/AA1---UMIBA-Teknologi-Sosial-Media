@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Liliana Zhulayka</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .main-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-thumb {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center; /* Memastikan foto kecil di header tetap di tengah */
+            margin-right: 10px;
+        }
+
+        .header-name {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-template {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+        }
+
+        .btn-share {
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-img-container {
+            position: relative;
+            width: 200px; /* Anda bisa mengecilkan angka ini jika ingin lingkaran lebih kecil */
+            height: 200px;
+            margin: 0 auto 20px;
+        }
+
+        .hero-img-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            /* Mengatur fokus agar wajah tidak terpotong */
+            /* Gunakan 'center 20%' agar area kepala/wajah lebih terlihat */
+            object-position: center 15%;
+            position: relative;
+            z-index: 2;
+            /* Memberikan sedikit border putih agar foto tidak menyentuh pinggiran merah */
+        }
+
+        .hero-img-background {
+            position: absolute;
+            top: -5px; /* Disesuaikan agar lebih rapat */
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            background-color: grey;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: blueviolet;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+            font-style: oblique;
+        }
+
+        .hero-description {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #444;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            text-align: justify;
+            padding: 0 20px; 
+        }
+
+        .btn-portfolio {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #333;
+            border-radius: 30px;
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .exp-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .exp-icon {
+            font-size: 1.5em;
+            color: red; /* Warna ikon sesuai lingkaran foto */
+            width: 40px;
+            text-align: center;
+            margin-right: 15px;
+        }
+
+        .exp-text {
+            font-size: 1.1em;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        .exp-arrow {
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .social-icon-large {
+            font-size: 2em;
+            border: 2px solid white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .footer-name-bar {
+            background-color: #111827;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .footer-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .footer-social-text {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .footer-social-icons {
+            font-size: 1.2em;
+        }
+
+        .footer-copyright {
+            font-size: 0.8em;
+            color: #aaa;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+
+        }
+            
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <!-- Ganti 'foto-liliana.jpg' dengan nama file foto Anda -->
+                <img src="Foto Formal.jpeg" alt="Foto Profil Liliana" class="profile-thumb">
+                <span class="header-name">Liliana Zhulayka</span>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-img-container">
+                <img src="Foto Formal.jpeg" alt="Foto Profil Liliana" class="hero-img-circle">
+                <div class="hero-img-background"></div>
+            </div>
+            <h1 class="hero-title">Halo saya, Liliana Zhulayka</h1>
+            <p class="hero-subtitle">Manajemen dan Bisnis</p>
+            <p class="hero-description">
+                Saya adalah seorang mahasiswi di Universitas Mitra Bangsa. Saya menggabungkan logika bisnis dengan desain antarmuka yang intuitif. Membangun web bukan sekadar soal kode, melainkan tentang bagaimana menghadirkan pengalaman digital yang nyaman, mudah digunakan, dan berdampak bagi pengguna.
+            </p>
+            <a href="#pengalaman" class="btn-portfolio">Lihat Portofolio</a>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="Rekam Jejak" class="experience-section">
+            <h2 class="section-title">Rekam Jejak</h2>
+            
+            <!-- Pendidikan -->
+            <div class="exp-item">
+                <i class="fas fa-graduation-cap exp-icon"></i>
+                <span class="exp-text">Pendidikan</span>
+                <i class="fas fa-chevron-down exp-arrow"></i>
+            </div>
+            <div class="accordion-content">
+                <p><strong>Universitas Mitra Bangsa</strong><br>
+                     (2025-sekarang)</p>
+                <p><strong>SMK Kartika X-2 Jakarta</strong><br>
+                    Jurusan MPLB (Manajemen Perkantoran dan Layanan Bisnis)
+                    2022-2025</p>
+            </div>
+
+            <!-- Menari (Baru) -->
+            <div class="exp-item">
+                <i class="fas fa-mask exp-icon"></i> <!-- Ikon topeng untuk menari -->
+                <span class="exp-text">Pengalaman Menari</span>
+                <i class="fas fa-chevron-down exp-arrow"></i>
+                </div>
+            <div class="exp-item">
+<div class="accordion-content">
+    <p>Menari bukan sekadar rangkaian gerak, melainkan bahasa jiwa paling murni. Di balik setiap lenturan badan, terdapat percakapan batin yang mendalam. Kesedihan, harapan, bahkan luka yang tak terdengar pun dapat di lepaskan. Di ruang latihan berdinding tembok ringan itu, saya belajar bahwa gerakan itu bukanlah beban, melainkan jembatan yang menghubungkan logika dan perasaan</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <h2 class="footer-title">Ikuti Saya</h2>
+            <div class="social-icon-large">
+                <i class="fab fa-instagram"></i> @zeintysz</div><p>
+            </div>
+            
+            <div class="footer-name-bar">
+                <div class="footer-name">Liliana Zhulayka</div>
+                <div class="footer-social-text">Sosial Media</div>
+                <div class="footer-social-icons">
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+            <div class="footer-copyright">© 2026 Liliana Zhulayka. All rights reserved.</div>
+        </footer>
+
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/0856-9488-0920" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+</body>
+</html>
